@@ -9,7 +9,7 @@ import Menu from "../MenuMobile/Menu";
 const HomePage = () => {
   const ismobile = useMediaQuery("(max-width:699px)");
   const ismedium = useMediaQuery("(max-width:1000px)");
-  const { _id, picturepath } = useSelector((state) => state.user);
+  const { _id, avatar } = useSelector((state) => state.user);
 
   const ismenuopen = useSelector((state) => state.ismenuopen);
 
@@ -36,7 +36,7 @@ const HomePage = () => {
           padding="2rem 6%"
           style={{ position: "relative", top: "65px" }}
         >
-          <MyPostWidget picturepath={picturepath} margin="11%" />
+          <MyPostWidget avatar={avatar} margin="11%" />
           <div style={{ marginTop: "0.35em" }}>
             <PostsWidget userid={_id} />
           </div>
@@ -61,15 +61,16 @@ const HomePage = () => {
           }}
         >
           <div style={{ display: `${ismedium ? "none" : "block"}` }}>
-            <UserWidget userid={_id} picturepath={picturepath} />
+            <UserWidget userid={_id} avatar={avatar} />
           </div>
 
           <div style={{ width: "600px", margin: "4.5em 0" }}>
-            <MyPostWidget picturepath={picturepath} margin="0.4em" />
+            <MyPostWidget avatar={avatar} margin="0.4em" />
             <PostsWidget userid={_id} />
           </div>
         </div>
       </div>
+
     </div>
   );
 };

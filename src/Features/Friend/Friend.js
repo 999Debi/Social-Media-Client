@@ -16,7 +16,7 @@ import FriendCard from "../../Components/FriendCard";
 import { setReqFriend, setFriends } from "../../States";
 import Menu from "../MenuMobile/Menu";
 
-const Friend = ({ friendid, name, userpicturepath }) => {
+const Friend = ({ friendid, name, useravatar }) => {
   const ismobile = useMediaQuery("(max-width:700px)");
 
   const [isRequest, setisRequest] = useState(true);

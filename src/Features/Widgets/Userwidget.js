@@ -16,7 +16,7 @@ const UserWidget = () => {
   if (!user) {
     return null;
   }
-  const { _id, firstname, picturepath } = user;
+  const { _id, firstname, avatar } = user;
 
   return (
     <div
@@ -32,9 +32,9 @@ const UserWidget = () => {
     >
       <div className="menu flexbox" onClick={() => navigate(`/profile/${_id}`)}>
         <div className="img flexbox" style={{ cursor: "pointer" }}>
-          <UserImage image={picturepath} />
+          <UserImage image={avatar} />
           <div style={{ marginLeft: "10px" }}>
-            <h4 style={{ margin: "0", fontWeight: "500" }}>{firstname}</h4>
+            <h4 style={{ margin: "0" }}>{firstname}</h4>
           </div>
         </div>
       </div>
@@ -55,9 +55,12 @@ const UserWidget = () => {
             borderRadius: "50%",
           }}
         />
-        <h4 style={{ margin: "0", fontWeight: "500", marginLeft: "2em" }}>
+        <h4 style={{ margin: "0", marginLeft: "2em" }}>
           Friends
         </h4>
+        {/* <span style={{ margin: "0", marginLeft: "2em" }}>
+          Friends
+        </span> */}
       </div>
 
       <div
@@ -73,7 +76,7 @@ const UserWidget = () => {
             backgroundColor: "#e6e8ee",
           }}
         />
-        <h4 style={{ margin: "0", fontWeight: "500", marginLeft: "2em" }}>
+        <h4 style={{ margin: "0", marginLeft: "2em"}}>
           Log Out
         </h4>
       </div>

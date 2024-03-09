@@ -15,7 +15,7 @@ const UserImage = ({ image, size = "50px", iscard = false, src }) => {
         width={size}
         height={size}
         alt="user"
-        src={src ? src : `${URL}/assets/${image}`}
+        src={src ? src : image}
         // src={src ? src : `http://localhost:3001/assets/${image}`}
       />
     </div>

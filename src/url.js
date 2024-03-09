@@ -1,2 +1,2 @@
-const URL = "https://social-media-api-xkv3.onrender.com";
+const URL = "https://social-media-server-dwpr.onrender.com";
 export default URL;

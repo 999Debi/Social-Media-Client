@@ -31,42 +31,30 @@ const AboutForm = ({updatedpic} ) => {
   const updateUser = async (data) => {
 
     try {
-
+// console.log(About)
+      // console.log(JSON.stringify(data.about));
+      console.log(about);
     const formData = new FormData();
-
+    formData.append("id", data.id);
+    formData.append("about", JSON.stringify(data.about));
       formData.append("picture", data.picture);
-      formData.append("picturepath", data.picturepath);
+      // formData.append("picturepath", data.picturepath);
 
-   
-
-    const res = await axios.post(
-      `${URL}/user/updatepic`,
-      // "http://localhost:3001/user/updatepic",
-      formData,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
+  //  console.log(about);
 
 
-    
-      const response = await axios.patch(
-        `${URL}/auth/updateUser`,
-        // "http://localhost:3001/auth/updateUser",
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+    console.log(data);
+        const response = await fetch(`${URL}/auth/updateUser`, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${token}` },
+          body: formData,
+        });
+        const res=await response.json();
+        console.log(res);
 
       dispatch(
         setPicture({
-          picture: data.picturepath,
+          avatar: res.avatar,
         })
       );
 
@@ -98,7 +86,7 @@ const AboutForm = ({updatedpic} ) => {
     await updateUser({
       id,
       about,
-      picturepath: updatedpic.name,
+      // picturepath: updatedpic.name,
       picture: updatedpic,
     });
 

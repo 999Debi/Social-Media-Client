@@ -64,7 +64,7 @@ const PostsWidget = ({ userid, isProfile = false }) => {
         <Loading />
       </div>
     );
-  }
+      }
 
   return (
     <>
@@ -76,8 +76,8 @@ const PostsWidget = ({ userid, isProfile = false }) => {
           lastname,
           description,
 
-          picturepath,
-          userpicturepath,
+          avatar,
+          useravatar,
           likes,
           comments,
         } = post;
@@ -88,8 +88,8 @@ const PostsWidget = ({ userid, isProfile = false }) => {
             postUserid={userid}
             name={`${firstname} ${lastname}`}
             description={description}
-            picturepath={picturepath}
-            userpicturepath={userpicturepath}
+            avatar={avatar}
+            useravatar={useravatar}
             likes={likes}
             comments={comments}
           />

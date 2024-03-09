@@ -23,8 +23,8 @@ const PostWidget = ({
   postUserid,
   name,
   description,
-  picturepath,
-  userpicturepath,
+  avatar,
+  useravatar,
   likes,
   comments,
 }) => {
@@ -39,7 +39,7 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id); // me as auser
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length; //length of likes
-  const ispicture = picturepath === undefined ? false : true;
+  const ispicture = avatar === undefined ? false : true;
   const patchLike = async () => {
     const { data } = await axios.patch(
       `${URL}/posts/${postid}/like`,
@@ -168,34 +168,17 @@ const PostWidget = ({
         </div>
 
         <div>
-          <Friend
-            name={name}
-            userpicturepath={userpicturepath}
-            postUserid={postUserid}
-          />
-
+          <Friend name={name} useravatar={useravatar} postUserid={postUserid} />
           <p>{description}</p>
 
-          {ispicture &&
-          picturepath.substring(picturepath.length - 4) === ".mp4" ? (
-            <video
+          {ispicture && (
+            <img
               width="100%"
-              height="auto"
-              alt="Video"
+              height="100%"
+              alt="post"
               style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-              src={`${URL}/assets/${picturepath}`}
-              controls
-            ></video>
-          ) : (
-            ispicture && (
-              <img
-                width="100%"
-                height="100%"
-                alt="post"
-                style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-                src={`${URL}/assets/${picturepath}`}
-              />
-            )
+              src={avatar}
+            />
           )}
 
           <div
@@ -245,7 +228,6 @@ const PostWidget = ({
               </div>
             </div>
           </div>
-
           {isComments && (
             <div className="comment-section">
               {allcomments.map((element, i) => (
@@ -268,7 +250,7 @@ const PostWidget = ({
                 }}
                 style={{ display: `${isComments ? "none" : ""}` }}
               >
-                <UserImage image={user.picturepath} size="30px" />
+                <UserImage image={user.avatar} size="30px" />
 
                 <div
                   contentEditable
@@ -299,7 +281,7 @@ const PostWidget = ({
             backgroundColor: "#fefefe",
           }}
         >
-          <UserImage image={user.picturepath} size="30px" />
+          <UserImage image={user.avatar} size="30px" />
 
           <div
             contentEditable

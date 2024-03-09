@@ -15,7 +15,7 @@ const Menu = () => {
   const {
     firstname,
     lastname,
-    picturepath,
+    avatar,
     _id: id,
   } = useSelector((state) => state.user);
   return (
@@ -56,7 +56,7 @@ const Menu = () => {
               navigate(`/profile/${id}`);
             }}
           >
-            <UserImage image={picturepath} />
+            <UserImage image={avatar} />
             <div
               style={{
                 display: "flex",

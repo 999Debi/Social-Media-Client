@@ -292,7 +292,7 @@ const ProfilePage = (props) => {
 
   if (!User) return null;
   // if(userid!=={user._id)
-  const { firstname, lastname, picturepath, friends, requestedFriend } = User;
+  const { firstname, lastname, avatar, friends, requestedFriend } = User;
 
   // const { Graduationyear, Specialization, Skills, Work, Clubs, Hobbies } =
   //   User.About;
@@ -382,7 +382,7 @@ const ProfilePage = (props) => {
           }}
         >
           <div className="profile-img">
-            <UserImage image={picturepath} size={150} />
+            <UserImage image={avatar} size={150} />
             <div className="profile-info">
               <h2 style={{}}>{firstname + " " + lastname}</h2>
               <p style={{ fontWeight: "500" }}>{friends.length} Friends</p>
@@ -473,7 +473,7 @@ const ProfilePage = (props) => {
           <div style={{ position: "relative", top: "5em" }}>
             <div className="mobile-post">
           
-                <MyPostWidget picturepath={picturepath} isPro={true} />
+                <MyPostWidget avatar={avatar} isPro={true} />
 
               <PostsWidget userid={userid} isProfile={true} />
             </div>
@@ -540,7 +540,7 @@ const ProfilePage = (props) => {
             >
               All Post
             </h2>
-            <MyPostWidget picturepath={picturepath} isPro={true} />
+            <MyPostWidget avatar={avatar} isPro={true} />
 
             <PostsWidget userid={userid} isProfile={true} />
           </div>
@@ -638,7 +638,7 @@ const ProfilePage = (props) => {
                 <p style={{ fontWeight: "550" }}>Profile Picture</p>
 
                 {files.length == 0 && (
-                  <UserImage image={user.picturepath} size={100} />
+                  <UserImage image={user.avatar} size={100} />
                 )}
                 {files.length != 0 && thumbs}
                 <div

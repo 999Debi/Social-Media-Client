@@ -22,7 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../States/index";
 import "../../styles.css";
 
-const MyPostWidget = ({ picturepath, isPro = false, margin }) => {
+const MyPostWidget = ({ avatar , isPro = false, margin }) => {
   const dispatch = useDispatch();
   const [isImage, setIsImage] = useState(false);
   const [isVideo, setIsVideo] = useState(false);
@@ -31,21 +31,22 @@ const MyPostWidget = ({ picturepath, isPro = false, margin }) => {
   const [post, setPost] = useState("");
   const [profile, setProfile] = useState(false);
 
-  const { _id } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
   const ismobile = useMediaQuery("(max-width: 699px)");
 
   const handlePost = async () => {
     const formData = new FormData();
-    formData.append("userid", _id);
+    formData.append("userid", user._id);
     formData.append("description", post);
+    formData.append("useravatar", user.avatar);
     if (image) {
       formData.append("picture", image);
-      formData.append("picturepath", image.name);
+      // formData.append("picturepath", image.name);
     }
     if (video) {
       formData.append("picture", video);
-      formData.append("picturepath", video.name);
+      // formData.append("picturepath", video.name);
     }
 
     const response = await fetch(`${URL}/posts`, {
@@ -83,7 +84,7 @@ const MyPostWidget = ({ picturepath, isPro = false, margin }) => {
       }}
     >
       <div className="flexbox">
-        <UserImage image={picturepath} />
+        <UserImage image={avatar} />
 
         {!profile ? (
           <InputBase
@@ -225,6 +226,8 @@ const MyPostWidget = ({ picturepath, isPro = false, margin }) => {
             >
               <PlayCircleFilledIcon sx={{ color: "red" }} />
               <span>Video</span>
+              {/* <h4>Video</h4> */}
+    
             </div>
           </>
 
@@ -234,9 +237,9 @@ const MyPostWidget = ({ picturepath, isPro = false, margin }) => {
               color: "#645cff",
             }}
             onClick={handlePost}
-            style={{ borderRadius: "3rem" }}
+            style={{ borderRadius: "3rem" ,}}
           >
-            POST
+            <span>POST</span>
           </Button>
         </div>
       }

@@ -30,13 +30,13 @@ const ProfileFriend = ({ friendid }) => {
     getFriend();
   }, []);
 
-  const { picturepath, firstname, lastname, friends } = friendsfriend;
+  const { avatar , firstname, lastname, friends } = friendsfriend;
 
   return (
     <>
       {!ismobilefriend && (
         <div className="profile-info-box">
-          <UserImage image={picturepath} size="75px " />
+          <UserImage image={avatar} size="75px " />
 
           <div
             style={{

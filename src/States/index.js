@@ -61,7 +61,7 @@ export const authSlice = createSlice({
       state.token = action.payload.token;
     },
     setPicture: (state, action) => {
-      state.user.picturepath = action.payload.picture;
+      state.user.avatar = action.payload.avatar;
     },
     setaboutuser: (state, action) => {
       const obj = {};

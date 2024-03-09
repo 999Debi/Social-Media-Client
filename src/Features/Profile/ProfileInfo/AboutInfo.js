@@ -8,8 +8,8 @@ import { useMediaQuery } from "@mui/material";
 const AboutInfo = ({ User }) => {
   const isNonMobileScreens = useMediaQuery("(min-width:700px)");
   const { firstname, lastname, About } = User;
-  const { Graduationyear, Specialization, Skills, Work, Clubs, Hobbies } =
-    About;
+  // const { Graduationyear, Specialization, Skills, Work, Clubs, Hobbies } =
+  //   About;
   return (
     <>
       (
@@ -39,14 +39,14 @@ const AboutInfo = ({ User }) => {
             <tbody>
               <tr>
                 <td>First Name</td>
-                <td>{firstname}</td>
+                <td>{About.firstname}</td>
               </tr>
             </tbody>
 
             <tbody>
               <tr>
                 <td>Last Name</td>
-                <td>{lastname}</td>
+                <td>{About.lastname}</td>
               </tr>
             </tbody>
 
@@ -57,7 +57,7 @@ const AboutInfo = ({ User }) => {
                   Graduation year
                 </td>
 
-                <td>{Graduationyear}</td>
+                <td>{About.Graduationyear}</td>
               </tr>
             </tbody>
 
@@ -67,7 +67,7 @@ const AboutInfo = ({ User }) => {
                   <AutoStoriesIcon />
                   Specialization
                 </td>
-                <td>{Specialization}</td>
+                <td>{About.Specialization}</td>
               </tr>
             </tbody>
 
@@ -77,7 +77,7 @@ const AboutInfo = ({ User }) => {
                   <EngineeringIcon />
                   Skills ans Experties
                 </td>
-                <td>{Skills}</td>
+                <td>{About.Skills}</td>
               </tr>
             </tbody>
 
@@ -87,7 +87,7 @@ const AboutInfo = ({ User }) => {
                   <WorkIcon />
                   Work Experience
                 </td>
-                <td>{Work}</td>
+                <td>{About.Work}</td>
               </tr>
             </tbody>
 
@@ -97,19 +97,11 @@ const AboutInfo = ({ User }) => {
                   <ApartmentIcon />
                   Clubs/Fest
                 </td>
-                <td>{Clubs}</td>
+                <td>{About.Clubs}</td>
               </tr>
             </tbody>
 
-            <tbody>
-              <tr>
-                <td>
-                  <SkateboardingIcon />
-                  Hobbies/Intrest
-                </td>
-                <td>{Hobbies}</td>
-              </tr>
-            </tbody>
+
           </table>
         </div>
       </div>

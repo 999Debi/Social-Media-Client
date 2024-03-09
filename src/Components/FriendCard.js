@@ -139,7 +139,7 @@ const FriendCard = ({ image, name, isReqFriend, friendid }) => {
 
       {!isReqFriend && !ismobile && (
         <div className="friend-card">
-          <UserImage image={myfriendinfo.picturepath} size={100} />
+          <UserImage image={myfriendinfo.avatar} size={100} />
 
           <div
             style={{
@@ -177,7 +177,7 @@ const FriendCard = ({ image, name, isReqFriend, friendid }) => {
 
       {!isReqFriend && ismobile && (
         <div className="friend-card">
-          <UserImage image={myfriendinfo.picturepath} size={60} />
+          <UserImage image={myfriendinfo.avatar} size={60} />
 
           <div
             style={{

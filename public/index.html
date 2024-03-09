@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="Content-Security-Policy" 
+    <!-- <meta http-equiv="Content-Security-Policy" 
     content="
       worker-src blob:; 
       child-src blob: gap:;
       img-src 'self' blob: data:;
-      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+      default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:"> -->
+      <meta http-equiv="Content-Security-Policy" content="default-src *; worker-src blob:; child-src blob: gap:;
+   img-src * 'self' blob: data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+   style-src  'self' 'unsafe-inline' *">
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +32,11 @@
       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
+    
     -->
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap')
+</style>
     <title>NRbuzz</title>
   </head>
   <body>
